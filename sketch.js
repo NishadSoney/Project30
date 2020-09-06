@@ -4,8 +4,6 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 var engine,world;
 
-var gameState = "onRope";
-
 var G,P1,P2;
 
 var l1block1,l1block2,l1block3,l1block4,l1block5;
@@ -112,13 +110,15 @@ function draw() {
 }
 
 function mouseDragged(){
-  if(gameState !== "launched"){
   Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
-  }
 }
-
 
 function mouseReleased(){
   RE.fly();
-  gameState = "launched";
+}
+
+function keyPressed(){
+  if(keyCode === 32){
+    RE.attach(polygon.body);
+  }
 }

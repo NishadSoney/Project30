@@ -11,6 +11,10 @@ class ROPE{
         World.add(world, this.rop);
     }
 
+    attach(body){
+        this.rop.bodyA = body;
+    }
+
     fly(){
         this.rop.bodyA = null;
     }
